@@ -466,6 +466,7 @@ $env:OPENAI_MAX_TOKENS = "1000"
 
 ## 📚 Documentação Adicional
 
+- **Análise do Desafio**: [`ANALISE_DESAFIO.md`](./ANALISE_DESAFIO.md) - Comparação do projeto com os requisitos do desafio
 - **Visão Estratégica**: [`VISAO_ESTRATEGICA.md`](./VISAO_ESTRATEGICA.md) - Racional de negócio e estratégia do produto
 - **Contexto do Projeto**: [`CONTEXTO_PROJETO.md`](./CONTEXTO_PROJETO.md) - Estado atual e arquitetura
 - **Guia de Testes**: [`TESTES.md`](./TESTES.md) - Testes completos da API
