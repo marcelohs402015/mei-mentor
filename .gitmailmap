@@ -1,0 +1,10 @@
+# .mailmap file to consolidate contributors
+# This file maps different email addresses and names to a single identity
+# Format: Proper Name <proper.email@example.com> <commit.email@example.com>
+# This ensures all commits are attributed to the correct person
+
+Marcelo Hernandes <marcelohs402015@users.noreply.github.com>
+Marcelo Hernandes <marcelohs402015@users.noreply.github.com> <claude@*>
+Marcelo Hernandes <marcelohs402015@users.noreply.github.com> Claude
+Marcelo Hernandes <marcelohs402015@users.noreply.github.com> <*@claude.ai>
+
