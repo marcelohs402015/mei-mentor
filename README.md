@@ -136,7 +136,57 @@ curl http://localhost:8085/api/opportunity/12345678901
 
 ## 🎨 Frontend - Painel Visual
 
-O frontend oferece uma experiência visual moderna com:
+O frontend oferece uma experiência visual moderna e intuitiva, guiando o usuário através de uma jornada completa desde a análise até a ativação da conta MEI.
+
+### 📸 Screenshots da Interface
+
+#### 1. Tela Inicial - Busca por CPF
+
+![Tela Inicial](frontend/screenshots/tela1.png)
+
+A tela inicial apresenta um design limpo e profissional com:
+- Header com logo e branding do MEI-Mentor
+- Campo de busca centralizado para CPF do cliente
+- Mensagem de boas-vindas explicando o propósito do sistema
+- Exemplos de CPFs de teste para facilitar a demonstração
+
+#### 2. Dashboard de Análise - Resultados da Oportunidade
+
+![Dashboard de Análise](frontend/screenshots/tela2.png)
+
+Após buscar um CPF, o sistema exibe um painel completo com:
+- **3 Cards de Impacto Visual**:
+  - 🔴 Dinheiro Deixado na Mesa (R$ 915,00)
+  - 🟢 Limite Disponível Pré-Aprovado (R$ 10.800,00)
+  - 🔵 Potencial Empreendedor (100%)
+- **Gráfico Circular** mostrando o score de potencial
+- **Recomendação personalizada** com dados específicos do cliente
+- **Market Intelligence** (Raio-X de Mercado) com dados de IA
+- **Botão de Ação** destacado para ativação
+
+#### 3. Modal de Ativação - Sucesso
+
+![Modal de Ativação](frontend/screenshots/tela3.png)
+
+Modal de confirmação exibido após clicar em "Ativar Conta MEI":
+- ✅ Ícone de sucesso
+- Informações da empresa (nome e CNPJ gerado)
+- Limite pré-aprovado destacado
+- Lista de benefícios incluídos
+- Botão para acessar o MEI-HUB
+
+#### 4. MEI-HUB - Ecossistema Completo
+
+![MEI-HUB](frontend/screenshots/tela4.png)
+
+Tela pós-ativação com o ecossistema completo de ferramentas:
+- **Banner de Capital de Giro** com limite disponível
+- **3 Mini-Apps Integrados**:
+  - 📄 Emissor de Nota Fácil (com histórico)
+  - 💬 Cobrança Pix via WhatsApp
+  - ❤️ Benefícios MEI (Plano de Saúde e DAS)
+- **Estatísticas Rápidas**: Faturamento, Notas Emitidas, Status
+- **Navegação**: Botão "Nova Análise" para voltar à tela inicial
 
 ### Componentes Principais
 
