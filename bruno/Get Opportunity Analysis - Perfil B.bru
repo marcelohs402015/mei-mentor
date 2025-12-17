@@ -1,0 +1,47 @@
+meta {
+  name: Get Opportunity Analysis - Perfil B (Assalariado)
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/opportunity/{{cpfPerfilB}}
+  body: none
+  auth: none
+}
+
+tests {
+  test("Status code is 200", function() {
+    expect(res.status).to.equal(200);
+  });
+
+  test("Response has all required fields", function() {
+    expect(res.body).to.have.property("id");
+    expect(res.body).to.have.property("potentialScore");
+    expect(res.body).to.have.property("monthlyLoss");
+    expect(res.body).to.have.property("marketIntelligence");
+  });
+
+  test("Potential score is low (not a target)", function() {
+    expect(res.body.potentialScore).to.be.below(70);
+  });
+
+  test("No shadow limit (not eligible)", function() {
+    expect(res.body.shadowLimit).to.equal(0);
+  });
+}
+
+docs {
+  # Analisar Oportunidade - Perfil B
+  
+  Este endpoint analisa o perfil B (Maria Santos), que é um **assalariado**:
+  - Recebe apenas salário fixo
+  - Sem atividade comercial
+  - Não é alvo para MEI
+  
+  **Resposta esperada:**
+  - Score baixo
+  - Sem limite sombra
+  - Pouca ou nenhuma perda mensal
+}
+

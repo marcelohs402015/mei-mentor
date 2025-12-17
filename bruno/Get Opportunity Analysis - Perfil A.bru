@@ -1,0 +1,62 @@
+meta {
+  name: Get Opportunity Analysis - Perfil A (Alvo Perfeito)
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/opportunity/{{cpfPerfilA}}
+  body: none
+  auth: none
+}
+
+tests {
+  test("Status code is 200", function() {
+    expect(res.status).to.equal(200);
+  });
+
+  test("Response has all required fields", function() {
+    expect(res.body).to.have.property("id");
+    expect(res.body).to.have.property("customerId");
+    expect(res.body).to.have.property("potentialScore");
+    expect(res.body).to.have.property("monthlyLoss");
+    expect(res.body).to.have.property("shadowLimit");
+    expect(res.body).to.have.property("identifiedRevenue");
+    expect(res.body).to.have.property("recommendation");
+    expect(res.body).to.have.property("marketIntelligence");
+  });
+
+  test("Potential score is high (>= 70)", function() {
+    expect(res.body.potentialScore).to.be.at.least(70);
+  });
+
+  test("Monthly loss is positive", function() {
+    expect(res.body.monthlyLoss).to.be.above(0);
+  });
+
+  test("Shadow limit is available", function() {
+    expect(res.body.shadowLimit).to.be.above(0);
+  });
+
+  test("Market intelligence is present", function() {
+    expect(res.body.marketIntelligence).to.not.be.null;
+    expect(res.body.marketIntelligence).to.have.property("businessNiche");
+    expect(res.body.marketIntelligence).to.have.property("digitalPresenceScore");
+  });
+}
+
+docs {
+  # Analisar Oportunidade - Perfil A
+  
+  Este endpoint analisa o perfil A (João Silva), que é o **alvo perfeito**:
+  - Vendedor de doces com múltiplos Pix recorrentes
+  - Faturamento: ~R$ 5.000/mês
+  - Alta oportunidade MEI
+  
+  **Resposta esperada:**
+  - Score alto (>= 70)
+  - Perda mensal significativa
+  - Limite sombra disponível
+  - Market intelligence com presença digital
+}
+

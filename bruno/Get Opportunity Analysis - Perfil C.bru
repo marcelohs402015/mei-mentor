@@ -1,0 +1,47 @@
+meta {
+  name: Get Opportunity Analysis - Perfil C (Alto Faturamento)
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/api/opportunity/{{cpfPerfilC}}
+  body: none
+  auth: none
+}
+
+tests {
+  test("Status code is 200", function() {
+    expect(res.status).to.equal(200);
+  });
+
+  test("Response has all required fields", function() {
+    expect(res.body).to.have.property("id");
+    expect(res.body).to.have.property("potentialScore");
+    expect(res.body).to.have.property("recommendation");
+    expect(res.body).to.have.property("marketIntelligence");
+  });
+
+  test("Recommendation suggests ME/EPP", function() {
+    expect(res.body.recommendation).to.include("ME ou EPP");
+  });
+
+  test("High identified revenue", function() {
+    expect(res.body.identifiedRevenue).to.be.above(10000);
+  });
+}
+
+docs {
+  # Analisar Oportunidade - Perfil C
+  
+  Este endpoint analisa o perfil C (Carlos Oliveira), que tem **alto faturamento**:
+  - Faturamento: ~R$ 20.000/mês
+  - Excede limite MEI (R$ 6.750/mês)
+  - Deve sugerir ME/EPP
+  
+  **Resposta esperada:**
+  - Recomendação para ME/EPP
+  - Receita identificada alta
+  - Alerta sobre limite MEI
+}
+

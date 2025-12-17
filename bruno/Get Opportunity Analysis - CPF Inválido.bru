@@ -1,0 +1,32 @@
+meta {
+  name: Get Opportunity Analysis - CPF Inválido
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/api/opportunity/00000000000
+  body: none
+  auth: none
+}
+
+tests {
+  test("Status code is 400 (Bad Request)", function() {
+    expect(res.status).to.equal(400);
+  });
+
+  test("Error message is present", function() {
+    expect(res.body).to.have.property("message");
+  });
+}
+
+docs {
+  # Analisar Oportunidade - CPF Inválido
+  
+  Testa o tratamento de erro quando um CPF não existe no banco de dados.
+  
+  **Resposta esperada:**
+  - Status 400 (Bad Request)
+  - Mensagem de erro informativa
+}
+
